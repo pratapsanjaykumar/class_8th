@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basic Concept of Science | CBSE Board By Pratap Sanjay Sir</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Inter & JetBrains Mono Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          },
+          colors: {
+            science: {
+              50: '#ecfeff',
+              100: '#cffafe',
+              400: '#22d3ee',
+              500: '#06b6d4',
+              900: '#164e63',
+              950: '#083344'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #030712;
+      color: #f3f4f6;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+    .glass {
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .glass-card {
+      background: rgba(17, 24, 39, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .glass-card:hover {
+      border-color: rgba(56, 189, 248, 0.35);
+      transform: translateY(-2px);
+      box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.5);
+    }
+    .grid-bg {
+      background-size: 36px 36px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    }
+    /* Scrollbar styling */
+    ::-webkit-scrollbar {
+      width: 7px;
+      height: 7px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #090d16;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1f293d;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #0284c7;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen relative selection:bg-cyan-500 selection:text-black">
+  <div class="fixed inset-0 grid-bg pointer-events-none z-0"></div>
+  <div class="fixed top-[-10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-cyan-600/10 blur-[120px] pointer-events-none z-0"></div>
+  <div class="fixed bottom-[-10%] right-[-10%] w-[500px] h-[500px] rounded-full bg-indigo-600/10 blur-[140px] pointer-events-none z-0"></div>
+
+  <!-- Toast Notification Box -->
+  <div id="toastBox" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 pointer-events-none transition-all duration-300 flex items-center gap-3 px-4 py-3 rounded-2xl bg-slate-900 border border-cyan-500/50 text-cyan-300 text-sm shadow-2xl">
+    <svg class="w-5 h-5 text-cyan-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+    <span id="toastMsg" class="font-medium">Notes copied to clipboard!</span>
+  </div>
+
+  <div class="relative z-10 flex flex-col min-h-screen">
+
+    <header class="sticky top-0 z-40 glass border-b border-slate-800/80 shadow-lg">
+      <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-2.5 sm:py-3.5 flex flex-wrap items-center justify-between gap-2 sm:gap-4">
+        
+        <!-- Logo & Branding -->
+        <a href="#" class="flex items-center gap-2 sm:gap-3 group shrink min-w-0">
+          <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-tr from-cyan-500 to-indigo-600 flex items-center justify-center shadow-lg shadow-cyan-500/20 group-hover:scale-105 transition-transform shrink-0">
+            <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+            </svg>
+          </div>
+          <div class="min-w-0 flex flex-col">
+            <div class="flex items-center gap-1.5 flex-wrap">
+              <span class="text-[9px] sm:text-[10px] uppercase tracking-wider text-cyan-400 font-bold whitespace-nowrap">CBSE Board</span>
+              <span class="text-[8px] sm:text-[9px] px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 font-mono border border-amber-500/30 whitespace-nowrap">By Pratap Sanjay Sir</span>
+            </div>
+            <h1 class="text-xs sm:text-base md:text-lg font-bold tracking-tight text-white truncate">
+              Concepts of Science
+            </h1>
+          </div>
+        </a>
+
+        <!-- Header Actions -->
+        <div class="flex items-center gap-1.5 sm:gap-3 shrink-0 ml-auto">
+          <a href="https://pratapsanjaykumar.github.io/class_7th/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1.5 sm:py-2 text-[11px] sm:text-xs font-semibold rounded-lg bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-300 border border-emerald-500/40 transition active:scale-95 whitespace-nowrap shadow-sm">
+            <svg class="w-3.5 h-3.5 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+            <span>Class 7th</span> &rarr;
+          </a>
+
+          <button onclick="copyAllNotes()" class="hidden md:inline-flex items-center gap-2 px-3 py-2 text-xs font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition active:scale-95">
+            <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/></svg>
+            <span>Copy Notes</span>
+          </button>
+
+          <a href="#testQuizSection" class="inline-flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3.5 py-1.5 sm:py-2 text-[11px] sm:text-xs font-bold rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 transition shadow-md shadow-cyan-500/20 active:scale-95 whitespace-nowrap">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+            <span>15-Q Quiz</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 flex-1 w-full space-y-10 sm:space-y-12">
+      
+      <!-- Hero Section -->
+      <section class="text-center space-y-5 sm:space-y-6 pt-2 sm:pt-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold bg-gradient-to-r from-cyan-950 via-slate-900 to-indigo-950 border border-cyan-500/30 text-cyan-300 shadow-md">
+          <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+          <span>CBSE Board Curriculum &bull; By Pratap Sanjay Sir</span>
+        </div>
+
+        <h2 class="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight text-white">
+          Basic Concept of <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-400">Science</span>
+        </h2>
+
+        <p class="text-slate-300 text-sm sm:text-base max-w-3xl mx-auto leading-relaxed">
+          Fundamental principles, origins, definitions, fathers and mothers of science, core branches (<span class="text-cyan-400 font-semibold">Physics</span>, <span class="text-emerald-400 font-semibold">Chemistry</span>, <span class="text-purple-400 font-semibold">Biology</span>), and live interactive dynamic examples.
+        </p>
+
+        <!-- Search & Navigation Controls -->
+        <div class="max-w-xl mx-auto pt-2 space-y-3">
+          <div class="relative">
+            <svg class="w-5 h-5 absolute left-3.5 top-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+            <input type="text" id="searchInput" oninput="filterCards()" placeholder="Search terms (e.g., Scientia, Aristotle, Galileo, Lavoisier)..." class="w-full pl-11 pr-10 py-3 rounded-2xl bg-slate-900/90 border border-slate-700 text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20 transition">
+            <button id="clearSearchBtn" onclick="clearSearch()" class="hidden absolute right-3 top-3 text-slate-400 hover:text-white p-0.5">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+          </div>
+
+          <!-- Section Filter Tabs -->
+          <div class="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 text-xs">
+            <button onclick="setTab('all')" id="tab-all" class="filter-tab px-3.5 py-1.5 rounded-xl font-bold bg-cyan-500 text-slate-950 transition">All Concepts</button>
+            <button onclick="setTab('foundation')" id="tab-foundation" class="filter-tab px-3.5 py-1.5 rounded-xl font-bold bg-slate-800 text-slate-300 hover:bg-slate-700 transition">Foundations</button>
+            <button onclick="setTab('physics')" id="tab-physics" class="filter-tab px-3.5 py-1.5 rounded-xl font-bold bg-slate-800 text-slate-300 hover:bg-slate-700 transition">Physics</button>
+            <button onclick="setTab('chemistry')" id="tab-chemistry" class="filter-tab px-3.5 py-1.5 rounded-xl font-bold bg-slate-800 text-slate-300 hover:bg-slate-700 transition">Chemistry</button>
+            <button onclick="setTab('biology')" id="tab-biology" class="filter-tab px-3.5 py-1.5 rounded-xl font-bold bg-slate-800 text-slate-300 hover:bg-slate-700 transition">Biology</button>
+            <a href="#testQuizSection" class="px-3.5 py-1.5 rounded-xl font-bold bg-indigo-950 text-indigo-300 border border-indigo-700 hover:bg-indigo-900 transition">&rarr; 15-Q Quiz</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="sec-foundation" class="content-block space-y-6">
+        <div class="flex items-center gap-3 border-b border-cyan-500/30 pb-3">
+          <div class="w-8 h-8 rounded-lg bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold text-sm border border-cyan-500/30">01</div>
+          <div>
+            <h3 class="text-xl sm:text-2xl font-bold text-white tracking-tight">Foundations of Science</h3>
+            <p class="text-xs text-slate-400 font-mono">Etymology, Definition & Fundamental Pillars</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <!-- Card 1: Etymology -->
+          <div class="searchable-item glass-card rounded-2xl p-5 sm:p-6 relative">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="p-2 rounded-xl bg-cyan-500/10 text-cyan-400 font-mono text-xs font-bold border border-cyan-500/20">ETYMOLOGY</span>
+              <h4 class="font-bold text-white text-base">Origin of the Word</h4>
+            </div>
+            <p class="text-slate-300 text-sm leading-relaxed mb-3">
+              The term <strong class="text-cyan-300">"Science"</strong> originates from the Latin root word <strong class="text-cyan-300 font-mono">"Scientia"</strong>, which literally translates to <strong class="text-white">Knowledge</strong>.
+            </p>
+            <div class="text-xs text-slate-400 font-mono bg-slate-950/60 p-2.5 rounded-xl border border-slate-800">
+              Scientia (Latin) &rarr; "To Know" / Structured Knowledge
+            </div>
+          </div>
+
+          <!-- Card 2: Definition -->
+          <div class="searchable-item glass-card rounded-2xl p-5 sm:p-6 relative">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="p-2 rounded-xl bg-sky-500/10 text-sky-400 font-mono text-xs font-bold border border-sky-500/20">DEFINITION</span>
+              <h4 class="font-bold text-white text-base">What is Science?</h4>
+            </div>
+            <p class="text-slate-300 text-sm leading-relaxed mb-3">
+              Science is the systematic study of the structure and behaviour of nature and the physical world through observation, experimentation, and evidence.
+            </p>
+            <div class="text-xs text-slate-400 font-mono bg-slate-950/60 p-2.5 rounded-xl border border-slate-800">
+              Any systematic knowledge concerned with the physical world and its phenomena.
+            </div>
+          </div>
+
+          <!-- Card 3: Pillars -->
+          <div class="searchable-item glass-card rounded-2xl p-5 sm:p-6 relative">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="p-2 rounded-xl bg-purple-500/10 text-purple-400 font-mono text-xs font-bold border border-purple-500/20">PILLARS</span>
+              <h4 class="font-bold text-white text-base">Pioneering Pillars</h4>
+            </div>
+            <div class="text-slate-300 text-xs sm:text-sm space-y-1.5 leading-relaxed">
+              <div><strong class="text-purple-300">Father of Science:</strong> Aristotle</div>
+              <div><strong class="text-sky-300">Father of Modern Science:</strong> Albert Einstein / Galileo</div>
+              <div><strong class="text-pink-300">Mother of Science:</strong> Philosophy</div>
+              <div><strong class="text-purple-300">Mother of Modern Science:</strong> Maria Skłodowska-Curie (Polish Scientist)</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-4 pt-2">
+          
+          <!-- Live Dynamic Ex 1: Scientific Method Stepper -->
+          <div class="bg-gradient-to-br from-slate-900 via-slate-900 to-cyan-950/40 border-2 border-cyan-500/40 rounded-3xl p-5 sm:p-7 shadow-2xl relative overflow-hidden">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-4 pb-3 border-b border-cyan-500/20">
+              <div class="flex items-center gap-3">
+                <span class="px-3 py-1 rounded-xl text-xs font-extrabold font-mono bg-cyan-400 text-slate-950 uppercase tracking-wider shadow">Example 1</span>
+                <h4 class="text-lg sm:text-[20px] font-extrabold text-white tracking-tight">The Scientific Method in Action</h4>
+              </div>
+              <span class="text-xs text-cyan-300 font-mono px-2.5 py-1 rounded-lg bg-cyan-950 border border-cyan-800" id="methodStepText">Step 1 of 4</span>
+            </div>
+            
+            <div class="p-4 rounded-2xl bg-slate-950/90 border border-slate-800 mb-4">
+              <p class="text-base sm:text-[20px] text-slate-100 font-medium leading-relaxed" id="methodDesc">
+                <strong class="text-cyan-400">Observation:</strong> You notice plants placed beside the sunny window grow tall, while shaded plants wither.
+              </p>
+            </div>
+
+            <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden mb-4">
+              <div id="methodProgress" class="bg-gradient-to-r from-cyan-400 to-blue-500 h-full w-1/4 transition-all duration-300"></div>
+            </div>
+
+            <div class="flex flex-wrap justify-between items-center gap-3">
+              <span class="text-xs sm:text-sm text-cyan-300 font-mono font-semibold" id="methodActionTag">Observe &rarr; Question</span>
+              <button onclick="advanceScientificMethod()" class="px-5 py-2.5 rounded-xl bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-extrabold text-sm transition shadow-lg shadow-cyan-400/20 active:scale-95">
+                Next Investigation Step &rarr;
+              </button>
+            </div>
+          </div>
+
+          <!-- Live Dynamic Ex 2: States of Matter & Thermal Kinetic Theory -->
+          <div class="bg-gradient-to-br from-slate-900 via-slate-900 to-indigo-950/40 border-2 border-indigo-500/40 rounded-3xl p-5 sm:p-7 shadow-2xl relative overflow-hidden">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-4 pb-3 border-b border-indigo-500/20">
+              <div class="flex items-center gap-3">
+                <span class="px-3 py-1 rounded-xl text-xs font-extrabold font-mono bg-indigo-400 text-slate-950 uppercase tracking-wider shadow">Example 2</span>
+                <h4 class="text-lg sm:text-[20px] font-extrabold text-white tracking-tight">States of Matter & Physical Changes</h4>
+              </div>
+              <span class="text-xs text-indigo-300 font-mono px-2.5 py-1 rounded-lg bg-indigo-950 border border-indigo-800" id="matterTempBadge">0 °C (Melting Point)</span>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-slate-950/90 border border-slate-800 mb-4">
+              <p class="text-base sm:text-[20px] text-slate-100 font-medium leading-relaxed" id="matterDescription">
+                <strong class="text-indigo-400">Current State:</strong> Water molecules transition from rigid crystal lattice (Ice) into fluid (Liquid water).
+              </p>
+            </div>
+
+            <div class="space-y-2 mb-4">
+              <div class="flex justify-between text-xs text-slate-400 font-mono">
+                <span>Freezing (-20°C)</span>
+                <span>Room Temp (25°C)</span>
+                <span>Boiling (100°C)</span>
+              </div>
+              <input type="range" id="tempSlider" min="-20" max="120" value="0" oninput="updateMatterState()" class="w-full accent-indigo-400 h-3 bg-slate-800 rounded-lg cursor-pointer">
+            </div>
+
+            <div class="grid grid-cols-3 gap-2 text-center text-xs font-bold font-mono">
+              <div id="stateSolid" class="p-2.5 rounded-xl border border-indigo-500 bg-indigo-950/80 text-indigo-200">Solid (Ice)</div>
+              <div id="stateLiquid" class="p-2.5 rounded-xl border border-slate-800 bg-slate-950 text-slate-500">Liquid (Water)</div>
+              <div id="stateGas" class="p-2.5 rounded-xl border border-slate-800 bg-slate-950 text-slate-500">Gas (Steam)</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section id="sec-physics" class="content-block space-y-6">
+        <div class="flex items-center gap-3 border-b border-sky-500/30 pb-3">
+          <div class="w-8 h-8 rounded-lg bg-sky-500/20 text-sky-400 flex items-center justify-center font-bold text-sm border border-sky-500/30">02</div>
+          <div>
+            <h3 class="text-xl sm:text-2xl font-bold text-white tracking-tight">Physics</h3>
+            <p class="text-xs text-slate-400 font-mono">The King of Science &bull; Matter, Energy & Forces</p>
+          </div>
+        </div>
+
+        <div class="glass-card rounded-3xl p-6 sm:p-8 relative space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Details Left -->
+            <div class="space-y-4">
+              <div class="flex items-center gap-2">
+                <span class="px-2.5 py-1 rounded-lg text-xs font-bold font-mono bg-sky-500/20 text-sky-300 border border-sky-500/30">KING OF SCIENCE</span>
+                <span class="text-xs text-slate-400 font-mono">(Maths: Queen of Science)</span>
+              </div>
+              <h4 class="text-2xl font-extrabold text-white">Study of Matter & Energy</h4>
+              <p class="text-slate-300 text-sm leading-relaxed">
+                <strong class="text-sky-300">Etymology:</strong> Derived from the Greek word <strong class="text-white font-mono">"Physika"</strong> (or <em>Physis</em>), meaning <strong class="text-white">Nature</strong>.
+              </p>
+              <p class="text-slate-300 text-sm leading-relaxed">
+                <strong class="text-sky-300">Definition:</strong> The branch of science in which we systematically study matter, energy, motion, and their mutual interactions.
+              </p>
+              <div class="p-4 rounded-xl bg-slate-950/80 border border-slate-800">
+                <span class="text-xs text-slate-400 uppercase font-mono">Founding Pioneer</span>
+                <div class="text-base font-bold text-white mt-1">Father of Physics: Galileo Galilei</div>
+                <div class="text-xs text-sky-400 font-mono mt-0.5">Key Contributors: Isaac Newton & Albert Einstein</div>
+              </div>
+            </div>
+
+            <!-- Sub-branches Right -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div class="searchable-item bg-slate-900/70 p-4 rounded-xl border border-slate-800/80">
+                <div class="text-sky-400 font-bold text-sm mb-1">1. Mechanics</div>
+                <p class="text-xs text-slate-300">Study of forces, motion, friction, gravitation, and mechanical equilibrium.</p>
+              </div>
+              <div class="searchable-item bg-slate-900/70 p-4 rounded-xl border border-slate-800/80">
+                <div class="text-sky-400 font-bold text-sm mb-1">2. Thermodynamics</div>
+                <p class="text-xs text-slate-300">Study of heat transfer, temperature, entropy, and thermal mechanical work.</p>
+              </div>
+              <div class="searchable-item bg-slate-900/70 p-4 rounded-xl border border-slate-800/80">
+                <div class="text-sky-400 font-bold text-sm mb-1">3. Electromagnetism</div>
+                <p class="text-xs text-slate-300">Study of electric charges, magnetic fields, induction, and electromagnetic radiation.</p>
+              </div>
+              <div class="searchable-item bg-slate-900/70 p-4 rounded-xl border border-slate-800/80">
+                <div class="text-sky-400 font-bold text-sm mb-1">4. Optics</div>
+                <p class="text-xs text-slate-300">Study of light behaviour, reflection, refraction, lenses, and lasers.</p>
+              </div>
+              <div class="searchable-item bg-slate-900/70 p-4 rounded-xl border border-slate-800/80 sm:col-span-2">
+                <div class="text-sky-400 font-bold text-sm mb-1">5. Nuclear Physics</div>
+                <p class="text-xs text-slate-300">Study of atomic nuclei, their internal structure, nuclear fission, fusion, and radiation.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-6 border-t border-slate-800/80 space-y-4">
+            
+            <!-- Dynamic Physics Ex 1: Newton's Second Law -->
+            <div class="bg-gradient-to-br from-slate-900 via-slate-900 to-sky-950/50 border-2 border-sky-500/40 rounded-3xl p-5 sm:p-7 shadow-2xl">
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-4 pb-3 border-b border-sky-500/20">
+                <div class="flex items-center gap-3">
+                  <span class="px-3 py-1 rounded-xl text-xs font-extrabold font-mono bg-sky-400 text-slate-950 uppercase tracking-wider shadow">Example 1</span>
+                  <h4 class="text-lg sm:text-[20px] font-extrabold text-white tracking-tight">Newton's 2nd Law of Motion (F = m &bull; a)</h4>
+                </div>
+                <span class="text-xs text-sky-300 font-mono px-2.5 py-1 rounded-lg bg-sky-950 border border-sky-800">Force = Mass &times; Accel</span>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-slate-950/90 border border-slate-800 mb-4">
+                <p class="text-base sm:text-[20px] text-slate-100 font-medium leading-relaxed" id="newtonLawExplanation">
+                  Applying <span class="text-sky-300 font-bold" id="forceValDisplay">50 N</span> of force to a <span class="text-amber-300 font-bold" id="massValDisplay">5 kg</span> object produces an acceleration of <span class="text-emerald-400 font-extrabold" id="accelValDisplay">10.0 m/s²</span>.
+                </p>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                <div class="bg-slate-950 p-3 rounded-2xl border border-slate-800">
+                  <div class="flex justify-between text-xs text-slate-300 mb-1">
+                    <span>Applied Force (F):</span>
+                    <span class="font-mono text-sky-300 font-bold" id="sliderFLabel">50 N</span>
+                  </div>
+                  <input type="range" id="sliderForce" min="10" max="200" value="50" oninput="calculateNewtonLaw()" class="w-full accent-sky-400 h-2.5 bg-slate-800 rounded-lg cursor-pointer">
+                </div>
+                <div class="bg-slate-950 p-3 rounded-2xl border border-slate-800">
+                  <div class="flex justify-between text-xs text-slate-300 mb-1">
+                    <span>Object Mass (m):</span>
+                    <span class="font-mono text-amber-300 font-bold" id="sliderMLabel">5 kg</span>
+                  </div>
+                  <input type="range" id="sliderMass" min="1" max="25" value="5" oninput="calculateNewtonLaw()" class="w-full accent-amber-400 h-2.5 bg-slate-800 rounded-lg cursor-pointer">
+                </div>
+              </div>
+
+              <!-- Animated Motion Track -->
+              <div class="h-20 bg-slate-950 rounded-2xl relative overflow-hidden border border-slate-800 flex items-center px-4">
+                <div class="absolute inset-x-0 bottom-2 border-b border-dashed border-slate-700"></div>
+                <div id="physicsBlock" class="w-12 h-10 rounded-xl bg-gradient-to-r from-sky-500 to-indigo-600 flex items-center justify-center text-xs font-mono font-bold text-white shadow-lg relative left-0 transition-all duration-500">
+                  <span id="blockLabel">5kg</span>
+                </div>
+              </div>
+              <button onclick="animateNewtonBlock()" class="w-full mt-3 py-2.5 rounded-xl bg-sky-400 hover:bg-sky-300 text-slate-950 font-extrabold text-sm transition active:scale-95 shadow-md">
+                Push Object with Calculated Force &rarr;
+              </button>
+            </div>
+
+            <!-- Dynamic Physics Ex 2: Galileo's Gravitational Drop -->
+            <div class="bg-gradient-to-br from-slate-900 via-slate-900 to-sky-950/50 border-2 border-sky-500/40 rounded-3xl p-5 sm:p-7 shadow-2xl">
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-4 pb-3 border-b border-sky-500/20">
+                <div class="flex items-center gap-3">
+                  <span class="px-3 py-1 rounded-xl text-xs font-extrabold font-mono bg-sky-400 text-slate-950 uppercase tracking-wider shadow">Example 2</span>
+                  <h4 class="text-lg sm:text-[20px] font-extrabold text-white tracking-tight">Galileo's Free Fall & Gravity Law</h4>
+                </div>
+                <span class="text-xs text-sky-300 font-mono px-2.5 py-1 rounded-lg bg-sky-950 border border-sky-800" id="gravityLabel">Earth (9.8 m/s²)</span>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-slate-950/90 border border-slate-800 mb-4">
+                <p class="text-base sm:text-[20px] text-slate-100 font-medium leading-relaxed" id="gravityDropDesc">
+                  Dropping an object from a <span class="text-sky-300 font-bold">100m tower</span> on Earth takes <span class="text-emerald-400 font-extrabold" id="fallTimeDisplay">4.52 seconds</span> regardless of its weight.
+                </p>
+              </div>
+
+              <div class="flex flex-wrap gap-2 mb-4">
+                <button onclick="setGravityPreset(9.8, 'Earth (9.8 m/s²)')" class="flex-1 py-2 text-xs font-bold rounded-xl bg-sky-950 text-sky-300 border border-sky-700 hover:bg-sky-900 transition">Earth (9.8 m/s²)</button>
+                <button onclick="setGravityPreset(1.62, 'Moon (1.62 m/s²)')" class="flex-1 py-2 text-xs font-bold rounded-xl bg-sky-950 text-sky-300 border border-sky-700 hover:bg-sky-900 transition">Moon (1.62 m/s²)</button>
+                <button onclick="setGravityPreset(24.79, 'Jupiter (24.8 m/s²)')" class="flex-1 py-2 text-xs font-bold rounded-xl bg-sky-950 text-sky-300 border border-sky-700 hover:bg-sky-900 transition">Jupiter (24.8 m/s²)</button>
+              </div>
+
+              <div class="h-24 bg-slate-950 rounded-2xl relative overflow-hidden border border-slate-800 flex items-center justify-center">
+                <div id="dropBall" class="w-8 h-8 rounded-full bg-gradient-to-tr from-amber-400 to-orange-500 absolute top-2 left-8 shadow-lg shadow-orange-500/40 transition-all duration-700"></div>
+                <div class="text-center font-mono text-xs text-slate-400 z-10">
+                  <span class="text-white font-bold text-sm">Height: 100 Metres</span><br>
+                  <span class="text-sky-400">Gravitational Acceleration in Vacuum</span>
+                </div>
+              </div>
+
+              <button onclick="triggerFallAnimation()" class="w-full mt-3 py-2.5 rounded-xl bg-gradient-to-r from-sky-400 to-blue-500 hover:from-sky-300 hover:to-blue-400 text-slate-950 font-extrabold text-sm transition active:scale-95 shadow-lg">
+                Release Sphere & Test Acceleration
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <section id="sec-chemistry" class="content-block space-y-6">
+        <div class="flex items-center gap-3 border-b border-emerald-500/30 pb-3">
+          <div class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-sm border border-emerald-500/30">03</div>
+          <div>
+            <h3 class="text-xl sm:text-2xl font-bold text-white tracking-tight">Chemistry</h3>
+            <p class="text-xs text-slate-400 font-mono">The Central Science &bull; Atoms, Molecules & Reactions</p>
+          </div>
+        </div>
+
+        <div class="glass-card rounded-3xl p-6 sm:p-8 relative space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Details Left -->
+            <div class="space-y-4">
+              <div class="flex items-center gap-2">
+                <span class="px-2.5 py-1 rounded-lg text-xs font-bold font-mono bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">CENTRAL SCIENCE</span>
+                <span class="text-xs text-slate-400 font-mono">Bridges Physics & Life</span>
+              </div>
+              <h4 class="text-2xl font-extrabold text-white">Composition & Transformation</h4>
+              <p class="text-slate-300 text-sm leading-relaxed">
+                <strong class="text-emerald-300">Etymology:</strong> Derived from the Greek word <strong class="text-white font-mono">"Chemeia"</strong> (or ancient Egyptian <em>Khemia</em>), meaning <strong class="text-white">"Cast together" or "Pour together"</strong>.
+              </p>
+              <p class="text-slate-300 text-sm leading-relaxed">
+                <strong class="text-emerald-300">Definition:</strong> The branch of science that studies atoms, molecules, and ions, and how they combine to create substances and compounds.
+              </p>
+              <div class="p-4 rounded-xl bg-slate-950/80 border border-slate-800">
+                <span class="text-xs text-slate-400 uppercase font-mono">Pioneer of Chemical Laws</span>
+                <div class="text-base font-bold text-white mt-1">Father of Chemistry: Antoine Lavoisier</div>
+                <div class="text-xs text-emerald-400 font-mono mt-0.5">Modern Chemistry: Antoine Lavoisier, Robert Boyle & Berzelius</div>
+              </div>
+            </div>
+
+            <!-- Sub-branches Right -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div class="searchable-item bg-slate-900/70 p-4 rounded-xl border border-slate-800/80">
+                <div class="text-emerald-400 font-bold text-sm mb-1">1. Organic Chemistry</div>
+                <p class="text-xs text-slate-300">Study of carbon-containing compounds and covalent biological structures.</p>
+              </div>
+              <div class="searchable-item bg-slate-900/70 p-4 rounded-xl border border-slate-800/80">
+                <div class="text-emerald-400 font-bold text-sm mb-1">2. Inorganic Chemistry</div>
+                <p class="text-xs text-slate-300">Study of minerals, metals, salts, oxides, and non-carbon compounds.</p>
+              </div>
+              <div class="searchable-item bg-slate-900/70 p-4 rounded-xl border border-slate-800/80">
+                <div class="text-emerald-400 font-bold text-sm mb-1">3. Physical Chemistry</div>
+                <p class="text-xs text-slate-300">Application of physics, thermodynamics, and kinetics to chemical reactions.</p>
+              </div>
+              <div class="searchable-item bg-slate-900/70 p-4 rounded-xl border border-slate-800/80">
+                <div class="text-emerald-400 font-bold text-sm mb-1">4. Analytical Chemistry</div>
+                <p class="text-xs text-slate-300">Instruments and techniques for separation, identification, and quantitative analysis.</p>
+              </div>
+              <div class="searchable-item bg-slate-900/70 p-4 rounded-xl border border-slate-800/80 sm:col-span-2">
+                <div class="text-emerald-400 font-bold text-sm mb-1">5. Biochemistry</div>
+                <p class="text-xs text-slate-300">Chemical processes occurring inside living cells (enzymes, DNA, metabolism).</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-6 border-t border-slate-800/80 space-y-4">
+            
+            <!-- Dynamic Chem 1: Compound Formation -->
+            <div class="bg-gradient-to-br from-slate-900 via-slate-900 to-emerald-950/40 border-2 border-emerald-500/40 rounded-3xl p-5 sm:p-7 shadow-2xl">
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-4 pb-3 border-b border-emerald-500/20">
+                <div class="flex items-center gap-3">
+                  <span class="px-3 py-1 rounded-xl text-xs font-extrabold font-mono bg-emerald-400 text-slate-950 uppercase tracking-wider shadow">Example 1</span>
+                  <h4 class="text-lg sm:text-[20px] font-extrabold text-white tracking-tight">Chemical Bond Formation & Synthesis</h4>
+                </div>
+                <span class="text-xs text-emerald-300 font-mono px-2.5 py-1 rounded-lg bg-emerald-950 border border-emerald-800">Atoms &rarr; Compounds</span>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-slate-950/90 border border-slate-800 mb-4">
+                <p class="text-base sm:text-[20px] text-slate-100 font-medium leading-relaxed">
+                  Product Formed: <span class="text-emerald-400 font-extrabold" id="synthName">Water (H₂O)</span> &mdash; <span class="text-slate-300 text-base" id="synthDetail">Two hydrogen atoms covalently share electrons with one oxygen atom to achieve stability.</span>
+                </p>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                <button onclick="synthesizeCompound('H2O')" class="py-2.5 rounded-xl bg-emerald-950 hover:bg-emerald-900 text-emerald-300 border border-emerald-700 text-xs sm:text-sm font-mono font-bold transition">2H₂ + O₂ &rarr; 2H₂O</button>
+                <button onclick="synthesizeCompound('NaCl')" class="py-2.5 rounded-xl bg-emerald-950 hover:bg-emerald-900 text-emerald-300 border border-emerald-700 text-xs sm:text-sm font-mono font-bold transition">Na + Cl &rarr; NaCl</button>
+                <button onclick="synthesizeCompound('CO2')" class="py-2.5 rounded-xl bg-emerald-950 hover:bg-emerald-900 text-emerald-300 border border-emerald-700 text-xs sm:text-sm font-mono font-bold transition">C + O₂ &rarr; CO₂</button>
+              </div>
+            </div>
+
+            <!-- Dynamic Chem 2: Interactive pH Scale -->
+            <div class="bg-gradient-to-br from-slate-900 via-slate-900 to-emerald-950/40 border-2 border-emerald-500/40 rounded-3xl p-5 sm:p-7 shadow-2xl">
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-4 pb-3 border-b border-emerald-500/20">
+                <div class="flex items-center gap-3">
+                  <span class="px-3 py-1 rounded-xl text-xs font-extrabold font-mono bg-emerald-400 text-slate-950 uppercase tracking-wider shadow">Example 2</span>
+                  <h4 class="text-lg sm:text-[20px] font-extrabold text-white tracking-tight">pH Scale: Acidity, Neutrality & Alkalinity</h4>
+                </div>
+                <span class="text-xs text-emerald-300 font-mono px-2.5 py-1 rounded-lg bg-emerald-950 border border-emerald-800" id="phValueText">pH 7</span>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-slate-950/90 border border-slate-800 mb-4">
+                <p class="text-base sm:text-[20px] text-slate-100 font-medium leading-relaxed">
+                  Substance: <span class="text-emerald-400 font-extrabold" id="phSampleName">Pure Water</span> &mdash; Nature: <span class="text-cyan-300 font-bold" id="phStatus">Neutral (Equal H⁺ and OH⁻ ions)</span>
+                </p>
+              </div>
+
+              <div class="mb-2">
+                <input type="range" id="phSlider" min="0" max="14" value="7" step="1" oninput="updatePhScale()" class="w-full accent-emerald-400 h-3 bg-slate-800 rounded-lg cursor-pointer">
+              </div>
+              <div class="flex justify-between text-[11px] text-slate-400 font-mono">
+                <span class="text-rose-400">0 (Strong Acid)</span>
+                <span class="text-emerald-400">7 (Neutral Water)</span>
+                <span class="text-indigo-400">14 (Strong Base)</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <section id="sec-biology" class="content-block space-y-6">
+        <div class="flex items-center gap-3 border-b border-purple-500/30 pb-3">
+          <div class="w-8 h-8 rounded-lg bg-purple-500/20 text-purple-400 flex items-center justify-center font-bold text-sm border border-purple-500/30">04</div>
+          <div>
+            <h3 class="text-xl sm:text-2xl font-bold text-white tracking-tight">Biology</h3>
+            <p class="text-xs text-slate-400 font-mono">The Science of Life &bull; Structure, Growth & Ecosystems</p>
+          </div>
+        </div>
+
+        <div class="glass-card rounded-3xl p-6 sm:p-8 relative space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Details Left -->
+            <div class="space-y-4">
+              <div class="flex items-center gap-2">
+                <span class="px-2.5 py-1 rounded-lg text-xs font-bold font-mono bg-purple-500/20 text-purple-300 border border-purple-500/30">STUDY OF LIFE</span>
+                <span class="text-xs text-slate-400 font-mono">Greek: Bios + Logos</span>
+              </div>
+              <h4 class="text-2xl font-extrabold text-white">Living Organisms & Functions</h4>
+              <p class="text-slate-300 text-sm leading-relaxed">
+                <strong class="text-purple-300">Etymology:</strong> Derived from two Greek words: <strong class="text-white font-mono">"Bios"</strong> (Life) + <strong class="text-white font-mono">"Logos"</strong> (Study or Discourse).
+              </p>
+              <p class="text-slate-300 text-sm leading-relaxed">
+                <strong class="text-purple-300">Definition:</strong> The branch of natural science that studies living organisms, cellular morphology, physiology, and evolutionary genetics.
+              </p>
+              <div class="p-4 rounded-xl bg-slate-950/80 border border-slate-800">
+                <span class="text-xs text-slate-400 uppercase font-mono">Pioneers of Biology</span>
+                <div class="text-base font-bold text-white mt-1">Father of Biology: Aristotle</div>
+                <div class="text-xs text-purple-300 font-mono mt-0.5">Term Coined By: Jean-Baptiste Lamarck & Gottfried Treviranus (1802)</div>
+              </div>
+            </div>
+
+            <!-- Primary Branches Right -->
+            <div class="space-y-3">
+              <div class="searchable-item bg-slate-900/80 p-4 rounded-2xl border border-slate-800">
+                <div class="flex items-center justify-between mb-1">
+                  <span class="text-purple-400 font-extrabold text-base">1. Zoology (Animals)</span>
+                  <span class="text-[11px] font-mono text-slate-400">Greek: Zōion + Logos</span>
+                </div>
+                <p class="text-xs text-slate-300 leading-relaxed mb-2">The scientific study of animals, their behaviour, structure, and classification.</p>
+                <div class="text-xs font-mono text-purple-300 bg-purple-950/60 p-2 rounded-lg border border-purple-800/60">
+                  Father of Zoology: <strong>Aristotle</strong>
+                </div>
+              </div>
+
+              <div class="searchable-item bg-slate-900/80 p-4 rounded-2xl border border-slate-800">
+                <div class="flex items-center justify-between mb-1">
+                  <span class="text-emerald-400 font-extrabold text-base">2. Botany (Plants)</span>
+                  <span class="text-[11px] font-mono text-slate-400">Greek: Botane</span>
+                </div>
+                <p class="text-xs text-slate-300 leading-relaxed mb-2">The study of plants, flora, photosynthesis, plant physiology, and taxonomy.</p>
+                <div class="text-xs font-mono text-emerald-300 bg-emerald-950/60 p-2 rounded-lg border border-emerald-800/60">
+                  Father of Botany: <strong>Theophrastus</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Other Vital Biological Branches -->
+          <div class="pt-4 border-t border-slate-800/80">
+            <h5 class="text-xs uppercase tracking-wider font-mono text-slate-400 mb-3">Other Vital Biological Branches</h5>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              <div class="searchable-item bg-slate-900/60 p-4 rounded-xl border border-slate-800">
+                <div class="text-purple-300 font-bold text-sm mb-1">Microbiology</div>
+                <p class="text-xs text-slate-400 mb-2">Microscopic organisms (bacteria, viruses, fungi).</p>
+                <span class="text-[11px] text-purple-300 font-mono">Father: Leeuwenhoek</span>
+              </div>
+              <div class="searchable-item bg-slate-900/60 p-4 rounded-xl border border-slate-800">
+                <div class="text-purple-300 font-bold text-sm mb-1">Genetics</div>
+                <p class="text-xs text-slate-400 mb-2">Heredity, DNA, and inherited variation.</p>
+                <span class="text-[11px] text-purple-300 font-mono">Father: Gregor Mendel</span>
+              </div>
+              <div class="searchable-item bg-slate-900/60 p-4 rounded-xl border border-slate-800">
+                <div class="text-purple-300 font-bold text-sm mb-1">Cytology</div>
+                <p class="text-xs text-slate-400 mb-2">Structure and function of microscopic cells.</p>
+                <span class="text-[11px] text-purple-300 font-mono">Father: Robert Hooke</span>
+              </div>
+              <div class="searchable-item bg-slate-900/60 p-4 rounded-xl border border-slate-800">
+                <div class="text-purple-300 font-bold text-sm mb-1">Ecology</div>
+                <p class="text-xs text-slate-400 mb-2">Interactions between organisms & habitats.</p>
+                <span class="text-[11px] text-purple-300 font-mono">Ecosystem Dynamics</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-6 border-t border-slate-800/80 space-y-4">
+            
+            <!-- Dynamic Bio 1: Photosynthesis Simulator -->
+            <div class="bg-gradient-to-br from-slate-900 via-slate-900 to-purple-950/40 border-2 border-purple-500/40 rounded-3xl p-5 sm:p-7 shadow-2xl">
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-4 pb-3 border-b border-purple-500/20">
+                <div class="flex items-center gap-3">
+                  <span class="px-3 py-1 rounded-xl text-xs font-extrabold font-mono bg-purple-400 text-slate-950 uppercase tracking-wider shadow">Example 1</span>
+                  <h4 class="text-lg sm:text-[20px] font-extrabold text-white tracking-tight">Photosynthesis & Sunlight Energy Conversion</h4>
+                </div>
+                <span class="text-xs text-purple-300 font-mono px-2.5 py-1 rounded-lg bg-purple-950 border border-purple-800" id="sunlightText">50% Intensity</span>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-slate-950/90 border border-slate-800 mb-4">
+                <p class="text-base sm:text-[20px] text-slate-100 font-medium leading-relaxed">
+                  Sunlight Level: <span class="text-purple-300 font-bold">50%</span> &bull; Oxygen (O₂) Output: <span class="text-emerald-400 font-extrabold" id="oxygenRateText">Moderate (15 bubbles/min)</span>
+                </p>
+              </div>
+
+              <input type="range" id="sunlightSlider" min="0" max="100" value="50" oninput="updatePhotosynthesis()" class="w-full accent-purple-400 h-3 bg-slate-800 rounded-lg cursor-pointer">
+              <div class="flex justify-between text-[11px] text-slate-400 font-mono mt-1">
+                <span>0% (Darkness - No O₂)</span>
+                <span>50% (Ambient Daylight)</span>
+                <span>100% (Direct Sunlight)</span>
+              </div>
+            </div>
+
+            <!-- Dynamic Bio 2: Plant vs Animal Cell Inspector -->
+            <div class="bg-gradient-to-br from-slate-900 via-slate-900 to-purple-950/40 border-2 border-purple-500/40 rounded-3xl p-5 sm:p-7 shadow-2xl">
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-4 pb-3 border-b border-purple-500/20">
+                <div class="flex items-center gap-3">
+                  <span class="px-3 py-1 rounded-xl text-xs font-extrabold font-mono bg-purple-400 text-slate-950 uppercase tracking-wider shadow">Example 2</span>
+                  <h4 class="text-lg sm:text-[20px] font-extrabold text-white tracking-tight">Cell Structure & Organelle Comparison</h4>
+                </div>
+                <span class="text-xs text-purple-300 font-mono px-2.5 py-1 rounded-lg bg-purple-950 border border-purple-800">Cytology</span>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-slate-950/90 border border-slate-800 mb-4">
+                <p class="text-base sm:text-[20px] text-slate-100 font-medium leading-relaxed" id="cellBoxText">
+                  <strong class="text-purple-400" id="cellTitle">Plant Cell:</strong> <span class="text-slate-200" id="cellFeatures">Features a rigid cellulose cell wall, green chloroplasts for photosynthesis, and a large central sap vacuole.</span>
+                </p>
+              </div>
+
+              <div class="flex gap-3">
+                <button id="btnPlantCell" onclick="inspectCell('plant')" class="flex-1 py-2.5 text-xs sm:text-sm rounded-xl bg-purple-900/80 text-purple-200 border border-purple-600 font-bold transition">Inspect Plant Cell</button>
+                <button id="btnAnimalCell" onclick="inspectCell('animal')" class="flex-1 py-2.5 text-xs sm:text-sm rounded-xl bg-slate-950 text-slate-400 border border-slate-800 hover:text-white font-bold transition">Inspect Animal Cell</button>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <section id="testQuizSection" class="glass-card rounded-3xl p-6 sm:p-8 border-2 border-cyan-500/40 relative shadow-2xl">
+        <div class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-800 pb-5 mb-6">
+          <div>
+            <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-md text-xs font-bold font-mono bg-cyan-950 text-cyan-300 border border-cyan-800 mb-2">
+              QUIZ ASSESSMENT
+            </div>
+            <h3 class="text-xl sm:text-2xl font-extrabold text-white">15-Question Science Mastery Test</h3>
+            <p class="text-xs text-slate-400">Self-evaluating interactive test based on complete curriculum notes</p>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <div class="text-right">
+              <span class="text-xs text-slate-400 block font-mono">Current Score</span>
+              <span class="text-lg font-black text-cyan-400 font-mono" id="quizScoreText">0 / 15</span>
+            </div>
+            <button onclick="resetQuiz()" class="px-3 py-2 text-xs font-semibold rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition">
+              Restart
+            </button>
+          </div>
+        </div>
+
+        <!-- Quiz Container -->
+        <div id="quizContainer" class="space-y-6">
+          <div class="flex items-center justify-between text-xs text-slate-400 font-mono">
+            <span id="quizProgressNum">Question 1 of 15</span>
+            <span id="quizPercent">7%</span>
+          </div>
+
+          <!-- Progress Bar -->
+          <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+            <div id="quizProgressBar" class="bg-gradient-to-r from-cyan-400 to-blue-500 h-full w-[6.6%] transition-all duration-300"></div>
+          </div>
+
+          <!-- Active Question Card -->
+          <div class="bg-slate-950/80 rounded-2xl p-5 sm:p-6 border border-slate-800/90 space-y-4">
+            <h4 class="text-base sm:text-lg font-bold text-white leading-relaxed" id="quizQuestionText">
+              Loading question...
+            </h4>
+            
+            <div class="grid grid-cols-1 gap-2.5" id="quizOptionsContainer">
+              <!-- Options loaded dynamically -->
+            </div>
+
+            <!-- Explanation Box -->
+            <div id="quizExplanation" class="hidden p-4 rounded-xl text-xs sm:text-sm leading-relaxed border transition-all duration-200">
+            </div>
+          </div>
+
+          <div class="flex justify-end gap-3 pt-2">
+            <button id="quizNextBtn" onclick="nextQuestion()" disabled class="px-6 py-2.5 rounded-xl font-bold text-sm bg-slate-800 text-slate-500 cursor-not-allowed transition">
+              Next Question &rarr;
+            </button>
+          </div>
+        </div>
+
+        <!-- Quiz Complete View -->
+        <div id="quizResultView" class="hidden text-center py-8 space-y-4">
+          <div class="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 flex items-center justify-center mx-auto text-2xl font-black">
+            &check;
+          </div>
+          <h4 class="text-2xl font-black text-white">Quiz Completed!</h4>
+          <p class="text-slate-300 text-sm max-w-md mx-auto" id="quizFinalSummary">
+            Great effort! Review your notes or restart to achieve a perfect 15/15 score.
+          </p>
+          <div class="pt-2">
+            <button onclick="resetQuiz()" class="px-6 py-3 rounded-xl bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-extrabold text-sm transition shadow-lg shadow-cyan-400/20">
+              Retake 15-Question Quiz
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="glass p-6 sm:p-8 rounded-3xl border border-emerald-500/30 text-center space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-950 text-emerald-300 border border-emerald-800">
+          Curated CBSE Learning
+        </div>
+        <h3 class="text-2xl sm:text-3xl font-extrabold text-white">
+          Explore All Notes Class 7th
+        </h3>
+        <p class="text-slate-300 text-sm max-w-xl mx-auto">
+          Access complete chapter-wise science notes, revisions, diagrams, formulas, and worksheets curated for Class 7 CBSE students.
+        </p>
+        <div class="pt-2">
+          <a href="https://pratapsanjaykumar.github.io/class_7th/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-sm transition shadow-lg shadow-emerald-500/20 active:scale-95">
+            <span>Open Class 7th Portal</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="border-t border-slate-800/80 py-8 glass mt-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400 text-center md:text-left">
+        <div>
+          <div class="flex items-center justify-center md:justify-start gap-2 text-slate-200 font-semibold mb-1">
+            <div class="w-2 h-2 rounded-full bg-cyan-400"></div>
+            <span>Concepts of Science &bull; Basic Concept of Science (CBSE Board)</span>
+          </div>
+          <p class="text-amber-400/90 font-medium text-sm">
+            Designed & Compiled By Pratap Sanjay Sir
+          </p>
+        </div>
+        <div>
+          <a href="https://pratapsanjaykumar.github.io/class_7th/" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline font-semibold">
+            Visit Class 7th Portal &rarr;
+          </a>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    // Tab Filter Logic
+    function setTab(tab) {
+      const tabs = ['all', 'foundation', 'physics', 'chemistry', 'biology'];
+      tabs.forEach(t => {
+        const btn = document.getElementById('tab-' + t);
+        if (btn) {
+          if (t === tab) {
+            btn.className = "filter-tab px-3.5 py-1.5 rounded-xl font-bold bg-cyan-500 text-slate-950 transition";
+          } else {
+            btn.className = "filter-tab px-3.5 py-1.5 rounded-xl font-bold bg-slate-800 text-slate-300 hover:bg-slate-700 transition";
+          }
+        }
+      });
+
+      const sections = {
+        foundation: document.getElementById('sec-foundation'),
+        physics: document.getElementById('sec-physics'),
+        chemistry: document.getElementById('sec-chemistry'),
+        biology: document.getElementById('sec-biology')
+      };
+
+      if (tab === 'all') {
+        Object.values(sections).forEach(sec => sec.classList.remove('hidden'));
+      } else {
+        Object.entries(sections).forEach(([key, sec]) => {
+          if (key === tab) {
+            sec.classList.remove('hidden');
+          } else {
+            sec.classList.add('hidden');
+          }
+        });
+      }
+    }
+
+    // Live search filter
+    function filterCards() {
+      const query = document.getElementById('searchInput').value.trim().toLowerCase();
+      const clearBtn = document.getElementById('clearSearchBtn');
+      if (query.length > 0) {
+        clearBtn.classList.remove('hidden');
+        document.querySelectorAll('.content-block').forEach(b => b.classList.remove('hidden'));
+      } else {
+        clearBtn.classList.add('hidden');
+      }
+
+      const items = document.querySelectorAll('.searchable-item');
+      items.forEach(item => {
+        const text = item.innerText.toLowerCase();
+        if (text.includes(query)) {
+          item.classList.remove('hidden');
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+    }
+
+    function clearSearch() {
+      const input = document.getElementById('searchInput');
+      input.value = '';
+      filterCards();
+      setTab('all');
+    }
+
+    // Dynamic Ex 1: Scientific Method Flow
+    const methodSteps = [
+      { step: "Step 1 of 4", action: "1. Observation & Question", desc: "<strong class='text-cyan-400'>Observation:</strong> You notice plants placed beside the sunny window grow tall, while shaded plants in dark corners wither.", progress: "25%" },
+      { step: "Step 2 of 4", action: "2. Formulate Hypothesis", desc: "<strong class='text-cyan-400'>Hypothesis:</strong> 'If a plant receives direct sunlight for 6 hours daily, its rate of photosynthesis and biomass will double.'", progress: "50%" },
+      { step: "Step 3 of 4", action: "3. Controlled Experiment", desc: "<strong class='text-cyan-400'>Experimentation:</strong> Grow 10 identical seedlings under identical soil and water, testing only varying sunlight hours for 14 days.", progress: "75%" },
+      { step: "Step 4 of 4", action: "4. Conclusion & Scientific Law", desc: "<strong class='text-cyan-400'>Conclusion:</strong> Data demonstrates direct correlation between radiant photon energy and glucose synthesis.", progress: "100%" }
+    ];
+    let currentMethodStep = 0;
+    function advanceScientificMethod() {
+      currentMethodStep = (currentMethodStep + 1) % methodSteps.length;
+      const s = methodSteps[currentMethodStep];
+      document.getElementById('methodStepText').textContent = s.step;
+      document.getElementById('methodDesc').innerHTML = s.desc;
+      document.getElementById('methodActionTag').innerHTML = s.action;
+      document.getElementById('methodProgress').style.width = s.progress;
+    }
+
+    // Dynamic Ex 2: States of Matter (Science Foundation)
+    function updateMatterState() {
+      const temp = parseInt(document.getElementById('tempSlider').value);
+      const badge = document.getElementById('matterTempBadge');
+      const desc = document.getElementById('matterDescription');
+      const solid = document.getElementById('stateSolid');
+      const liquid = document.getElementById('stateLiquid');
+      const gas = document.getElementById('stateGas');
+
+      badge.textContent = `${temp} °C`;
+
+      // Reset styles
+      [solid, liquid, gas].forEach(el => {
+        el.className = "p-2.5 rounded-xl border border-slate-800 bg-slate-950 text-slate-500";
+      });
+
+      if (temp <= 0) {
+        badge.textContent += " (Freezing/Solid)";
+        desc.innerHTML = `<strong class="text-indigo-400">Solid State (Ice):</strong> Water molecules are locked in a rigid hexagonal crystal lattice with minimal kinetic vibration.`;
+        solid.className = "p-2.5 rounded-xl border border-indigo-400 bg-indigo-950/90 text-indigo-200 font-extrabold shadow-md";
+      } else if (temp < 100) {
+        badge.textContent += " (Liquid)";
+        desc.innerHTML = `<strong class="text-sky-400">Liquid State (Water):</strong> Hydrogen bonds continuously break and re-form; molecules slide smoothly past each other.`;
+        liquid.className = "p-2.5 rounded-xl border border-sky-400 bg-sky-950/90 text-sky-200 font-extrabold shadow-md";
+      } else {
+        badge.textContent += " (Gas/Boiling)";
+        desc.innerHTML = `<strong class="text-purple-400">Gaseous State (Steam):</strong> Thermal energy completely overcomes intermolecular attraction; energetic vapor expands rapidly.`;
+        gas.className = "p-2.5 rounded-xl border border-purple-400 bg-purple-950/90 text-purple-200 font-extrabold shadow-md";
+      }
+    }
+
+    // Dynamic Physics Ex 1: Newton's Second Law
+    function calculateNewtonLaw() {
+      const f = parseFloat(document.getElementById('sliderForce').value);
+      const m = parseFloat(document.getElementById('sliderMass').value);
+      const a = (f / m).toFixed(1);
+
+      document.getElementById('sliderFLabel').textContent = `${f} N`;
+      document.getElementById('sliderMLabel').textContent = `${m} kg`;
+      document.getElementById('forceValDisplay').textContent = `${f} N`;
+      document.getElementById('massValDisplay').textContent = `${m} kg`;
+      document.getElementById('accelValDisplay').textContent = `${a} m/s²`;
+      document.getElementById('blockLabel').textContent = `${m}kg`;
+    }
+
+    function animateNewtonBlock() {
+      const block = document.getElementById('physicsBlock');
+      const f = parseFloat(document.getElementById('sliderForce').value);
+      const m = parseFloat(document.getElementById('sliderMass').value);
+      const duration = Math.max(0.2, (m / f) * 1.5).toFixed(2);
+
+      block.style.transitionDuration = `${duration}s`;
+      block.style.left = '75%';
+      setTimeout(() => {
+        block.style.transitionDuration = '0.4s';
+        block.style.left = '0%';
+      }, parseFloat(duration) * 1000 + 300);
+    }
+
+    // Dynamic Physics Ex 2: Galileo Gravity Drop
+    let gravityG = 9.8;
+    function setGravityPreset(g, name) {
+      gravityG = g;
+      document.getElementById('gravityLabel').textContent = name;
+      const h = 100;
+      const t = Math.sqrt((2 * h) / gravityG).toFixed(2);
+      document.getElementById('fallTimeDisplay').textContent = `${t} seconds`;
+      document.getElementById('gravityDropDesc').innerHTML = `Dropping an object from a <span class="text-sky-300 font-bold">100m tower</span> on ${name.split(' ')[0]} takes <span class="text-emerald-400 font-extrabold">${t} seconds</span> regardless of its mass.`;
+    }
+    function triggerFallAnimation() {
+      const ball = document.getElementById('dropBall');
+      ball.style.top = "8px";
+      setTimeout(() => {
+        ball.style.top = "62px";
+      }, 50);
+      setTimeout(() => {
+        ball.style.top = "8px";
+      }, 950);
+    }
+
+    // Dynamic Chemistry Ex 1: Synthesizer
+    const compounds = {
+      H2O: { name: "Water (H₂O)", detail: "Two hydrogen atoms covalently share electrons with one oxygen atom to achieve stability." },
+      NaCl: { name: "Sodium Chloride (Table Salt)", detail: "Ionic bond formed by complete transfer of one valence electron from sodium (Na⁺) to chlorine (Cl⁻)." },
+      CO2: { name: "Carbon Dioxide (CO₂)", detail: "Linear compound formed with two covalent double bonds between central carbon and two oxygen atoms." }
+    };
+    function synthesizeCompound(key) {
+      const comp = compounds[key];
+      document.getElementById('synthName').textContent = comp.name;
+      document.getElementById('synthDetail').textContent = comp.detail;
+    }
+
+    // Dynamic Chemistry Ex 2: pH Scale Indicator
+    function updatePhScale() {
+      const val = parseInt(document.getElementById('phSlider').value);
+      document.getElementById('phValueText').textContent = "pH " + val;
+      const nameElem = document.getElementById('phSampleName');
+      const statusElem = document.getElementById('phStatus');
+
+      let category = val < 7 ? "Acidic (Excess H⁺ ions)" : (val === 7 ? "Neutral (Equal H⁺ & OH⁻ ions)" : "Alkaline / Basic (Excess OH⁻ ions)");
+      let sample = "Custom Solution";
+      if (val <= 1) sample = "Battery Acid / Gastric Juice (HCl)";
+      else if (val <= 3) sample = "Lemon Juice / Vinegar";
+      else if (val <= 5) sample = "Black Coffee / Normal Rainwater";
+      else if (val === 7) sample = "Pure Distilled Water (pH 7.0)";
+      else if (val <= 9) sample = "Baking Soda Solution";
+      else if (val <= 11) sample = "Milk of Magnesia";
+      else sample = "Bleach / Sodium Hydroxide (NaOH)";
+
+      nameElem.textContent = sample;
+      statusElem.textContent = category;
+    }
+
+    // Dynamic Biology Ex 1: Photosynthesis Simulator
+    function updatePhotosynthesis() {
+      const light = parseInt(document.getElementById('sunlightSlider').value);
+      document.getElementById('sunlightText').textContent = light + "% Intensity";
+      const bubbles = Math.round(light * 0.4);
+      let desc = bubbles === 0 ? "Zero (Darkness - Rate 0)" : (bubbles < 15 ? `Low (${bubbles} bubbles/min)` : `High (${bubbles} bubbles/min)`);
+      document.getElementById('oxygenRateText').textContent = desc;
+    }
+
+    // Dynamic Biology Ex 2: Plant vs Animal Cell
+    function inspectCell(type) {
+      const title = document.getElementById('cellTitle');
+      const features = document.getElementById('cellFeatures');
+      const btnP = document.getElementById('btnPlantCell');
+      const btnA = document.getElementById('btnAnimalCell');
+
+      if (type === 'plant') {
+        btnP.className = "flex-1 py-2.5 text-xs sm:text-sm rounded-xl bg-purple-900/80 text-purple-200 border border-purple-600 font-bold transition";
+        btnA.className = "flex-1 py-2.5 text-xs sm:text-sm rounded-xl bg-slate-950 text-slate-400 border border-slate-800 hover:text-white font-bold transition";
+        title.textContent = "Plant Cell:";
+        features.innerHTML = "Features a rigid cellulose cell wall, green chloroplasts containing chlorophyll for photosynthesis, and a large central sap vacuole.";
+      } else {
+        btnA.className = "flex-1 py-2.5 text-xs sm:text-sm rounded-xl bg-purple-900/80 text-purple-200 border border-purple-600 font-bold transition";
+        btnP.className = "flex-1 py-2.5 text-xs sm:text-sm rounded-xl bg-slate-950 text-slate-400 border border-slate-800 hover:text-white font-bold transition";
+        title.textContent = "Animal Cell:";
+        features.innerHTML = "Lacks rigid cell wall (enclosed only in flexible plasma membrane), contains no chloroplasts, possesses centrioles for cell division, and has small dispersed vacuoles.";
+      }
+    }
+
+    // 15-Question Quiz Dataset
+    const quizData = [
+      {
+        q: "1. The English word 'Science' comes from which Latin word?",
+        options: ["Scientia", "Scire", "Physica", "Logos"],
+        ans: 0,
+        exp: "Science is derived from the Latin word 'Scientia', which means knowledge."
+      },
+      {
+        q: "2. Who is historically credited as the 'Father of Science'?",
+        options: ["Albert Einstein", "Aristotle", "Galileo Galilei", "Isaac Newton"],
+        ans: 1,
+        exp: "Aristotle is regarded as the Father of Science for establishing systematic empirical study."
+      },
+      {
+        q: "3. What is acknowledged as the 'Mother of Science'?",
+        options: ["Mathematics", "Philosophy", "Astronomy", "Alchemy"],
+        ans: 1,
+        exp: "Philosophy is recognized as the Mother of Science because critical questioning birthed scientific inquiry."
+      },
+      {
+        q: "4. Who is honoured as the 'Mother of Modern Science'?",
+        options: ["Marie Skłodowska-Curie", "Ada Lovelace", "Rosalind Franklin", "Hypatia"],
+        ans: 0,
+        exp: "Maria Skłodowska-Curie, the pioneering Polish scientist who discovered polonium and radium, is recognized as the Mother of Modern Science."
+      },
+      {
+        q: "5. The word 'Physics' originates from the Greek word 'Physika' (or Physis), which translates to:",
+        options: ["Knowledge", "Energy", "Nature", "Matter"],
+        ans: 2,
+        exp: "'Physika' in Greek means nature; physics studies nature and its fundamental laws."
+      },
+      {
+        q: "6. Which branch is celebrated as the 'King of Science'?",
+        options: ["Chemistry", "Biology", "Physics", "Geology"],
+        ans: 2,
+        exp: "Physics is considered the King of Science (with Mathematics regarded as the Queen)."
+      },
+      {
+        q: "7. Who is recognized as the 'Father of Physics'?",
+        options: ["Galileo Galilei", "Antoine Lavoisier", "Aristotle", "Charles Darwin"],
+        ans: 0,
+        exp: "Galileo Galilei is widely known as the Father of Physics and the Father of Modern Science."
+      },
+      {
+        q: "8. The Greek root 'Chemeia' for Chemistry signifies:",
+        options: ["To separate elements", "Cast together or pour together", "Secret alchemy", "Burning flames"],
+        ans: 1,
+        exp: "'Chemeia' means 'cast together' or 'pour together', referring to juices and metallurgy."
+      },
+      {
+        q: "9. Who is hailed as the 'Father of Chemistry'?",
+        options: ["Robert Boyle", "Antoine Lavoisier", "Dmitri Mendeleev", "John Dalton"],
+        ans: 1,
+        exp: "Antoine Lavoisier established the Law of Conservation of Mass and is recognized as the Father of Chemistry."
+      },
+      {
+        q: "10. The word 'Biology' is formed from two Greek roots: 'Bios' and 'Logos'. What do they mean?",
+        options: ["Cells and Atoms", "Life and Study", "Plants and Animals", "Nature and Earth"],
+        ans: 1,
+        exp: "'Bios' means life and 'Logos' means study or discourse."
+      },
+      {
+        q: "11. Who coined the term 'Biology' in 1802?",
+        options: ["Aristotle", "Jean-Baptiste Lamarck and Gottfried Treviranus", "Robert Hooke", "Theophrastus"],
+        ans: 1,
+        exp: "The term 'Biology' was coined by Jean-Baptiste Lamarck and Gottfried Reinhold Treviranus."
+      },
+      {
+        q: "12. Who is known as both the 'Father of Biology' and the 'Father of Zoology'?",
+        options: ["Aristotle", "Theophrastus", "Antonie van Leeuwenhoek", "Galileo"],
+        ans: 0,
+        exp: "Aristotle is regarded as the Father of Biology as well as Zoology for his comprehensive classifications."
+      },
+      {
+        q: "13. Who is historically credited as the 'Father of Botany'?",
+        options: ["Theophrastus", "Aristotle", "Gregor Mendel", "Carl Linnaeus"],
+        ans: 0,
+        exp: "Theophrastus, a student of Aristotle, authored 'Enquiry into Plants' and is the Father of Botany."
+      },
+      {
+        q: "14. Which scientist discovered living microscopic cells and is known as the 'Father of Microbiology'?",
+        options: ["Robert Hooke", "Antonie van Leeuwenhoek", "Louis Pasteur", "Alexander Fleming"],
+        ans: 1,
+        exp: "Antonie van Leeuwenhoek first observed bacteria, protozoa, and spermatozoa using handcrafted microscopes."
+      },
+      {
+        q: "15. Gregor Johann Mendel is widely celebrated as the Father of which vital science branch?",
+        options: ["Cytology", "Ecology", "Genetics", "Taxonomy"],
+        ans: 2,
+        exp: "Gregor Mendel discovered the fundamental laws of inheritance through his pea plant experiments, founding Genetics."
+      }
+    ];
+
+    let currentQIndex = 0;
+    let quizScore = 0;
+    let quizAnswered = false;
+
+    function renderQuizQuestion() {
+      quizAnswered = false;
+      const q = quizData[currentQIndex];
+      document.getElementById('quizQuestionText').textContent = q.q;
+      document.getElementById('quizProgressNum').textContent = `Question ${currentQIndex + 1} of ${quizData.length}`;
+      const pct = Math.round(((currentQIndex + 1) / quizData.length) * 100);
+      document.getElementById('quizPercent').textContent = `${pct}%`;
+      document.getElementById('quizProgressBar').style.width = `${pct}%`;
+
+      const optionsBox = document.getElementById('quizOptionsContainer');
+      optionsBox.innerHTML = '';
+
+      q.options.forEach((opt, idx) => {
+        const btn = document.createElement('button');
+        btn.className = "w-full text-left p-3.5 rounded-xl border border-slate-800 bg-slate-900/60 hover:bg-slate-850 hover:border-slate-700 text-sm text-slate-200 transition font-medium flex items-center justify-between group";
+        btn.innerHTML = `
+          <span>${opt}</span>
+          <span class="w-6 h-6 rounded-lg bg-slate-800 border border-slate-700 text-slate-400 group-hover:text-white flex items-center justify-center text-xs font-mono font-bold">${String.fromCharCode(65 + idx)}</span>
+        `;
+        btn.onclick = () => selectQuizAnswer(idx, btn);
+        optionsBox.appendChild(btn);
+      });
+
+      const expBox = document.getElementById('quizExplanation');
+      expBox.className = "hidden";
+      expBox.innerHTML = "";
+
+      const nextBtn = document.getElementById('quizNextBtn');
+      nextBtn.disabled = true;
+      nextBtn.className = "px-6 py-2.5 rounded-xl font-bold text-sm bg-slate-800 text-slate-500 cursor-not-allowed transition";
+    }
+
+    function selectQuizAnswer(selectedIndex, clickedBtn) {
+      if (quizAnswered) return;
+      quizAnswered = true;
+
+      const q = quizData[currentQIndex];
+      const optionsBox = document.getElementById('quizOptionsContainer');
+      const allButtons = optionsBox.querySelectorAll('button');
+
+      // Highlight correct & wrong
+      allButtons.forEach((btn, idx) => {
+        btn.disabled = true;
+        btn.classList.remove('hover:bg-slate-850', 'hover:border-slate-700');
+        if (idx === q.ans) {
+          btn.className = "w-full text-left p-3.5 rounded-xl border border-emerald-500 bg-emerald-950/70 text-sm text-emerald-200 font-bold flex items-center justify-between";
+        } else if (idx === selectedIndex) {
+          btn.className = "w-full text-left p-3.5 rounded-xl border border-rose-500 bg-rose-950/70 text-sm text-rose-200 font-bold flex items-center justify-between";
+        } else {
+          btn.className = "w-full text-left p-3.5 rounded-xl border border-slate-900 bg-slate-950/40 text-sm text-slate-500 flex items-center justify-between";
+        }
+      });
+
+      if (selectedIndex === q.ans) {
+        quizScore++;
+        document.getElementById('quizScoreText').textContent = `${quizScore} / ${quizData.length}`;
+      }
+
+      // Show explanation
+      const expBox = document.getElementById('quizExplanation');
+      expBox.className = "p-4 rounded-xl text-xs sm:text-sm leading-relaxed border bg-slate-900/90 " + 
+        (selectedIndex === q.ans ? "border-emerald-500/50 text-emerald-300" : "border-rose-500/50 text-rose-300");
+      expBox.innerHTML = `<strong class="font-bold">${selectedIndex === q.ans ? "✓ Correct!" : "✗ Incorrect!"}</strong> ${q.exp}`;
+
+      // Enable Next
+      const nextBtn = document.getElementById('quizNextBtn');
+      nextBtn.disabled = false;
+      nextBtn.className = "px-6 py-2.5 rounded-xl font-bold text-sm bg-cyan-400 hover:bg-cyan-300 text-slate-950 transition active:scale-95 shadow-md shadow-cyan-400/20";
+    }
+
+    function nextQuestion() {
+      if (currentQIndex < quizData.length - 1) {
+        currentQIndex++;
+        renderQuizQuestion();
+      } else {
+        // Complete Quiz
+        document.getElementById('quizContainer').classList.add('hidden');
+        const resView = document.getElementById('quizResultView');
+        resView.classList.remove('hidden');
+        document.getElementById('quizFinalSummary').innerHTML = `
+          You scored <strong class="text-cyan-400 text-lg">${quizScore} out of ${quizData.length}</strong>! 
+          ${quizScore >= 13 ? "🌟 Outstanding mastery of foundational science concepts!" : (quizScore >= 9 ? "👍 Solid understanding! Keep revising to score 15/15." : "📖 Review the sections above and try again!")}
+        `;
+      }
+    }
+
+    function resetQuiz() {
+      currentQIndex = 0;
+      quizScore = 0;
+      document.getElementById('quizScoreText').textContent = `0 / ${quizData.length}`;
+      document.getElementById('quizContainer').classList.remove('hidden');
+      document.getElementById('quizResultView').classList.add('hidden');
+      renderQuizQuestion();
+    }
+
+    function copyAllNotes() {
+      const notes = `Concepts of Science - Basic Concept of Science
+Curriculum: CBSE Board
+Designed By: Pratap Sanjay Sir
+
+1. FOUNDATION OF SCIENCE:
+- Origin: Derived from Latin word "Scientia", meaning Knowledge.
+- Definition: Science is the study of the behaviour of nature and the physical world. Any systematic knowledge concerned with the physical world and its phenomena.
+- Father of Science: Aristotle
+- Father of Modern Science: Albert Einstein / Galileo Galilei
+- Mother of Science: Philosophy
+- Mother of Modern Science: Maria Skłodowska-Curie (Polish Scientist)
+
+2. PHYSICS (The King of Science):
+- Origin: Derived from Greek word "Physika" (or Physis) meaning Nature.
+- Definition: The branch of science in which we study matter, energy and their interaction with each other.
+- Father of Physics: Galileo Galilei
+- Sub-branches: Mechanics, Thermodynamics, Electromagnetism, Optics, Nuclear Physics.
+
+3. CHEMISTRY:
+- Origin: Derived from Greek word "Chemeia", meaning "Cast together" or "Pour together".
+- Definition: Branch of science studying atoms, molecules, and ions that form compounds.
+- Father of Chemistry: Antoine Lavoisier
+- Sub-branches: Organic Chemistry, Inorganic Chemistry, Physical Chemistry, Analytical Chemistry, Biochemistry.
+
+4. BIOLOGY (Study of Life):
+- Origin: Greek words "Bios" (Life) + "Logos" (To study).
+- Term Coined By: Lamarck & Treviranus (1802).
+- Father of Biology: Aristotle
+- Zoology (Study of animals): Father Aristotle
+- Botany (Study of plants): Father Theophrastus
+- Microbiology: Antonie van Leeuwenhoek | Genetics: Gregor Mendel | Cytology: Robert Hooke
+
+Reference Portal: https://pratapsanjaykumar.github.io/class_7th/`;
+
+      const textArea = document.createElement("textarea");
+      textArea.value = notes;
+      textArea.style.position = "fixed";
+      textArea.style.left = "-9999px";
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      try {
+        document.execCommand('copy');
+        showToast("Complete Notes Copied to Clipboard!");
+      } catch (err) {
+        showToast("Error copying notes!");
+      }
+      document.body.removeChild(textArea);
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toastBox');
+      const toastMsg = document.getElementById('toastMsg');
+      toastMsg.textContent = msg;
+      toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+      setTimeout(() => {
+        toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+      }, 2600);
+    }
+
+    // Initialize state on load
+    window.onload = function() {
+      renderQuizQuestion();
+      updateMatterState();
+      calculateNewtonLaw();
+      updatePhScale();
+    };
+  </script>
+</body>
+</html>
